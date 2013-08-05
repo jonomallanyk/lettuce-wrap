@@ -34,10 +34,12 @@ $phone: 500px;
   overflow: hidden;
 }
 
+// Full viewport width rows
 @mixin full-width() {
   min-width: 100%;
 }
 
+// Set the number of columns to a row
 @mixin columns($columns) {
   padding: {
     left: $col-margins;
@@ -57,6 +59,7 @@ $phone: 500px;
   }
 }
 
+// Push a set of columns across
 @mixin push($push) {
   margin-left: percentage($push / $total-columns);
 
@@ -65,6 +68,7 @@ $phone: 500px;
   }
 }
 
+// A mixin to include on the last object in a row. This might be unnecessary. 
 @mixin omega {
   clear: both;
 }
