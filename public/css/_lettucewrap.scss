@@ -1,0 +1,70 @@
+// Responsive Text
+$em: 16px;
+
+// Responsive Images
+img {
+  max-width: 100%;
+  display: block;
+}
+
+// Fixing the Box Model
+* {
+  box-sizing: border-box;
+}
+
+// Grid Settings
+$max-width: 1140px;
+$col-margins: 10px;
+$total-columns: 12;
+
+// Responsive Breakpoints
+$desktop: 960px;
+$tablet: 768px;
+$phone: 500px;
+
+// The Grid
+@mixin grid-container() {
+  max-width: $max-width;
+  margin: {
+    left: auto;
+    right: auto;
+  }
+  clear: both;
+  display: block;
+  overflow: hidden;
+}
+
+@mixin full-width() {
+  min-width: 100%;
+}
+
+@mixin columns($columns) {
+  padding: {
+    left: $col-margins;
+    right: $col-margins;
+  }
+  float: left;
+  width: percentage($columns / $total-columns);
+  display: block;
+
+  @media only screen and (max-width: $phone) {
+    width: 100%;
+    padding: {
+      left: 20px;
+      right: 20px;
+    }
+    clear: both;
+  }
+}
+
+@mixin push($push) {
+  margin-left: percentage($push / $total-columns);
+
+  @media only screen and (max-width: $phone) {
+    margin: 0;
+  }
+}
+
+@mixin omega {
+  clear: both;
+}
