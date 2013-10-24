@@ -73,3 +73,41 @@ $phone: 500px;
 @mixin omega {
   clear: both;
 }
+
+// Media Queries
+// Set a media query by device, with optional max-width or min-width modifer
+// Example:
+// @include media("phone") {
+//   attribute
+// } 
+@mixin media($device, $width: "max") {
+  // Set max or min width
+  @if $width == "max" {
+    $width: max-width;
+  }
+
+  @if $max-min-width == "min" {
+    $width: min-width;
+  }
+  
+  //default max
+  @if $device == "phone" {
+    @media only screen and ($width: $phone) {
+      @content;
+    }
+  }
+  
+  //default max
+  @if $device == "tablet" {
+    @media only screen and ($width: $tablet) {
+      @content;
+    }
+  }
+  
+  // default min
+  @if $device == "desktop" {
+    @media only screen and ($width: $desktop) {
+      @content;
+    }
+  }
+}
