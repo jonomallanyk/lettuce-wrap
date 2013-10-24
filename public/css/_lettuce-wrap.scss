@@ -10,6 +10,7 @@ img {
 // Fixing the Box Model
 * {
   box-sizing: border-box;
+  -moz-box-sizing: border-box;
 }
 
 // Grid Settings
