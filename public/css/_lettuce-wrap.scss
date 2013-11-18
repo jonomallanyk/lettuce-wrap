@@ -1,27 +1,27 @@
-// Responsive Text
-$em: 16px;
-
-// Responsive Images
-img {
-  max-width: 100%;
-  display: block;
-}
-
 // Fixing the Box Model
 * {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
 
-// Grid Settings
+// Set the base text
+$em: 16px;
+
+// Responsive images
+img {
+  max-width: 100%;
+  display: block;
+}
+
+// Base grid settings
 $max-width: 1140px;
-$col-margins: 10px;
+$column-margins: 10px;
 $total-columns: 12;
 
-// Responsive Breakpoints
-$desktop: 960px;
-$tablet: 768px;
-$phone: 500px;
+// Responsive breakpoints
+$desktop: 30em;
+$tablet: 48em;
+$phone: 32em;
 
 // The Grid
 @mixin grid-container() {
@@ -30,7 +30,7 @@ $phone: 500px;
     left: auto;
     right: auto;
   }
-  clear: both;
+  clear: both; 
   display: block;
   overflow: hidden;
 }
@@ -43,8 +43,8 @@ $phone: 500px;
 // Set the number of columns to a row
 @mixin columns($columns) {
   padding: {
-    left: $col-margins;
-    right: $col-margins;
+    left: $column-margins;
+    right: $column-margins;
   }
   float: left;
   width: percentage($columns / $total-columns);
@@ -80,33 +80,21 @@ $phone: 500px;
 // @include media("phone") {
 //   attribute
 // } 
-@mixin media($device, $width: "max") {
-  // Set max or min width
-  @if $width == "max" {
-    $width: max-width;
+@mixin media($device) {
+  @if $device == "phone" {
+    @media only screen and (max-width: $phone) {
+      @content;
+    }
   }
 
-  @if $max-min-width == "min" {
-    $width: min-width;
-  }
-  
-  //default max
-  @if $device == "phone" {
-    @media only screen and ($width: $phone) {
-      @content;
-    }
-  }
-  
-  //default max
   @if $device == "tablet" {
-    @media only screen and ($width: $tablet) {
+    @media only screen and (max-width: $tablet) {
       @content;
     }
   }
-  
-  // default min
+
   @if $device == "desktop" {
-    @media only screen and ($width: $desktop) {
+    @media only screen and (min-width: $desktop) {
       @content;
     }
   }
