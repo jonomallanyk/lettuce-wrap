@@ -1,2 +1,18 @@
 @import "reset";
 @import "lettuce-wrap";
+
+.col {
+  height: 40px;
+  background: #FFF2F2;
+}
+
+#columns {
+  @include grid-container;
+  margin: 0 auto;
+
+  #twelve {
+    .col {
+      width: 100%;
+    }
+  }
+}
