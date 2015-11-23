@@ -1,8 +1,0 @@
-source 'https://rubygems.org'
-gem 'rack'
-# ruby '2.0.0'
-gem 'guard'
-gem 'guard-livereload'
-gem 'guard-sass'
-gem 'guard-slim'
-gem 'guard-scss'
